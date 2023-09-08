@@ -7,7 +7,7 @@ import Main from "@/components/Main/Main";
 export default function () {
   const [collapsed, setCollapsed] = useState(false);
   useEffect(() => {
-    if (window.innerWidth < 750) {
+    if (window.innerWidth < 950) {
       setCollapsed(true);
     }
   }, []);

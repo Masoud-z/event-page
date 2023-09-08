@@ -101,8 +101,8 @@ function Events() {
         />
       </div>
       <div className={styles.events}>
-        {events.map((event) => (
-          <EventCard event={event} />
+        {events.map((event, index) => (
+          <EventCard event={event} key={`${index}${event.title}`} />
         ))}
       </div>
     </div>

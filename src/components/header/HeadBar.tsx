@@ -98,7 +98,7 @@ function HeadBar(props: any) {
         </span>
         <Avatar src={me} />
 
-        <Dropdown menu={{ items }}>
+        <Dropdown menu={{ items }} className={styles.dropdown}>
           <Space>
             Masoud
             <DownOutlined />
