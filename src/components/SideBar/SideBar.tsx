@@ -10,13 +10,13 @@ import { CiUser } from "react-icons/ci";
 import { FiSettings } from "react-icons/fi";
 
 import type { MenuProps } from "antd";
-import { Breadcrumb, Layout, Menu, theme } from "antd";
+import { Layout, Menu, theme } from "antd";
 
 //Logo
 import dell from "../../assets/dell.png";
 import dellLogo from "../../assets/Dell_Logo.png";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Sider } = Layout;
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -51,47 +51,24 @@ function SideBar() {
     token: { colorBgContainer },
   } = theme.useToken();
   return (
-    <Layout style={{ minHeight: "100vh" }}>
-      <Sider
-        trigger={null}
-        collapsible
-        collapsed={collapsed}
-        onCollapse={(value) => setCollapsed(value)}
-      >
-        <div className={collapsed ? styles.collapsedLogo : styles.logo}>
-          <img src={collapsed ? dellLogo : dell} alt="Dell" />
-        </div>
-        <Menu
-          theme="dark"
-          defaultSelectedKeys={["3"]}
-          mode="inline"
-          items={items}
-          selectable={false}
-          inlineCollapsed={collapsed}
-        />
-      </Sider>
-      {/* <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }} />
-        <Content style={{ margin: "0 16px" }}>
-          <Breadcrumb style={{ margin: "16px 0" }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
-          <div
-            style={{
-              padding: 24,
-              minHeight: 360,
-              background: colorBgContainer,
-            }}
-          >
-            Bill is a cat.
-          </div>
-        </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©2023 Created by Ant UED
-        </Footer>
-      </Layout> */}
-    </Layout>
+    <Sider
+      trigger={null}
+      collapsible
+      collapsed={collapsed}
+      onCollapse={(value) => setCollapsed(value)}
+    >
+      <div className={collapsed ? styles.collapsedLogo : styles.logo}>
+        <img src={collapsed ? dellLogo : dell} alt="Dell" />
+      </div>
+      <Menu
+        theme="dark"
+        defaultSelectedKeys={["3"]}
+        mode="inline"
+        items={items}
+        selectable={false}
+        inlineCollapsed={collapsed}
+      />
+    </Sider>
   );
 }
 
