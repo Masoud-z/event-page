@@ -94,6 +94,21 @@ function Events() {
     setEnteredDate(undefined);
     setSelectedCities([]);
   }
+
+  function onLike(id: number, favorite: boolean) {
+    // find the object with the given id
+    // change the favorite `!favorite`
+
+    setEvents((prevData) => {
+      return prevData.map((event) => {
+        if (event.id === id) {
+          event.favorite = !favorite;
+        }
+        return event;
+      });
+    });
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.filterContainer}>
@@ -123,8 +138,8 @@ function Events() {
         />
       </div>
       <div className={styles.events}>
-        {events.map((event, index) => (
-          <EventCard event={event} key={event.id} />
+        {events.map((event) => (
+          <EventCard event={event} key={event.id} onLike={onLike} />
         ))}
       </div>
     </div>

@@ -5,7 +5,7 @@ import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Tooltip } from "antd";
 import EventModal from "./EventModal";
 
-function EventCard({ event }: any) {
+function EventCard({ event, onLike }: any) {
   return (
     <div className={styles.card}>
       <img src={event.imgUrl} alt={event.title} />
@@ -70,11 +70,17 @@ function EventCard({ event }: any) {
             <p>42 Going</p>
           </div>
           <div className={styles.options}>
-            {event.favorite ? (
-              <AiFillHeart style={{ color: "red" }} />
-            ) : (
-              <AiOutlineHeart />
-            )}
+            <span
+              onClick={() => onLike(event.id, event.favorite)}
+              className={styles.favorite}
+              key={event.id}
+            >
+              {event.favorite ? (
+                <AiFillHeart style={{ color: "red" }} />
+              ) : (
+                <AiOutlineHeart />
+              )}
+            </span>
             <EventModal event={event} />
           </div>
         </div>
