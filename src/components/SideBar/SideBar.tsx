@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SideBar.less";
 
 //Sidebar icons
@@ -49,6 +49,7 @@ function SideBar(props: any) {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
   return (
     <Sider trigger={null} collapsible collapsed={props.collapsed}>
       <div className={props.collapsed ? styles.collapsedLogo : styles.logo}>

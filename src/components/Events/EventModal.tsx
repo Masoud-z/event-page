@@ -13,23 +13,16 @@ const { Meta } = Card;
 function EventModal({ event }: any) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
   return (
     <>
-      <span className={styles.showDetail} onClick={showModal}>
+      <span className={styles.showDetail} onClick={() => setIsModalOpen(true)}>
         <FaShare style={{ color: "#69b1ff" }} />
       </span>
       <Modal
         title="Basic Modal"
         open={isModalOpen}
-        onOk={handleOk}
+        onOk={() => setIsModalOpen(false)}
+        onCancel={() => setIsModalOpen(false)}
         className={styles.modal}
       >
         <Card
