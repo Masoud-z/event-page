@@ -1,12 +1,18 @@
+import React, { useState } from "react";
 import { Link, Outlet } from "umi";
-import styles from "./index.less";
-import SideBar from "../components/SideBar/SideBar";
-import Container from "@/components/container/Container";
+import { Breadcrumb, Layout, Menu, theme } from "antd";
+import SideBar from "@/components/SideBar/SideBar";
+import Main from "@/components/Main/Main";
+const { Header, Content, Footer, Sider } = Layout;
 
-export default function Layout() {
+export default function () {
+  const [collapsed, setCollapsed] = useState(false);
   return (
-    <Container>
-      <Outlet />
-    </Container>
+    <Layout style={{ minHeight: "100vh" }}>
+      <SideBar collapsed={collapsed} />
+      <Main setCollapsed={setCollapsed} collapsed={collapsed}>
+        <Outlet />
+      </Main>
+    </Layout>
   );
 }

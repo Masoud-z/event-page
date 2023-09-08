@@ -45,20 +45,14 @@ const items: MenuItem[] = [
   getItem("Settings", "8", <FiSettings />),
 ];
 
-function SideBar() {
-  const [collapsed, setCollapsed] = useState(false);
+function SideBar(props: any) {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
   return (
-    <Sider
-      trigger={null}
-      collapsible
-      collapsed={collapsed}
-      onCollapse={(value) => setCollapsed(value)}
-    >
-      <div className={collapsed ? styles.collapsedLogo : styles.logo}>
-        <img src={collapsed ? dellLogo : dell} alt="Dell" />
+    <Sider trigger={null} collapsible collapsed={props.collapsed}>
+      <div className={props.collapsed ? styles.collapsedLogo : styles.logo}>
+        <img src={props.collapsed ? dellLogo : dell} alt="Dell" />
       </div>
       <Menu
         theme="dark"
@@ -66,7 +60,7 @@ function SideBar() {
         mode="inline"
         items={items}
         selectable={false}
-        inlineCollapsed={collapsed}
+        inlineCollapsed={props.collapsed}
       />
     </Sider>
   );
