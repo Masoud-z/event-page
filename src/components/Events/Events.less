@@ -1,0 +1,129 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 15px;
+  h4,
+  h5 {
+    margin: 0;
+  }
+  .filterContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 14px 10px;
+    height: max-content;
+  }
+  .reset {
+    align-self: flex-end;
+    color: aqua;
+  }
+
+  .reset:hover {
+    cursor: pointer;
+  }
+
+  .events {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+.cities {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  border-radius: 3px;
+  background-color: #fff;
+  height: 162px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  h3,
+  h5 {
+    margin: 0;
+  }
+  h5 {
+    color: red;
+  }
+  h3 {
+    color: #0c3f65;
+  }
+  p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    img {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.info {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.cardFooter {
+  width: 100%;
+  margin-top: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.people {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  p {
+    font-size: 10px;
+    color: #666;
+  }
+}
+.avatars {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.options {
+  font-size: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+.showDetail:hover {
+  cursor: pointer;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
