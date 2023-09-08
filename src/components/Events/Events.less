@@ -128,3 +128,15 @@
   justify-content: center;
   align-items: center;
 }
+
+@media screen {
+  @media (max-width: 950px) {
+    .container,
+    .card {
+      grid-template-columns: 1fr !important;
+    }
+    .card {
+      height: fit-content;
+    }
+  }
+}
