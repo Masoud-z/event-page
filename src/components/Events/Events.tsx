@@ -69,6 +69,7 @@ function Events() {
       setEvents(data);
     } else {
       const newArr: {
+        id: number;
         date: string;
         imgUrl: string;
         title: string;
@@ -123,7 +124,7 @@ function Events() {
       </div>
       <div className={styles.events}>
         {events.map((event, index) => (
-          <EventCard event={event} key={`${index}${event.title}`} />
+          <EventCard event={event} key={event.id} />
         ))}
       </div>
     </div>
