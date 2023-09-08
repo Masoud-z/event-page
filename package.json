@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "author": "Masoud <masoud.zeinalabedini@gmail.com>",
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi setup",
+    "setup": "umi setup",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "@ant-design/pro-layout": "^7.16.13",
+    "antd": "^5.8.6",
+    "axios": "^1.5.0",
+    "umi": "^4.0.80"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.33",
+    "@types/react-dom": "^18.0.11",
+    "@umijs/plugins": "^4.0.80",
+    "typescript": "^5.0.3"
+  }
+}
