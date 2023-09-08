@@ -1,13 +1,20 @@
 import React, { useState } from "react";
-import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import styles from "./SideBar.less";
+
+//Sidebar icons
+import { MdOutlineSpaceDashboard } from "react-icons/md";
+import { BsXDiamond, BsPeople, BsTrophy } from "react-icons/bs";
+import { AiOutlineCalendar } from "react-icons/ai";
+import { BiMessageRounded } from "react-icons/bi";
+import { CiUser } from "react-icons/ci";
+import { FiSettings } from "react-icons/fi";
+
 import type { MenuProps } from "antd";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
+
+//Logo
+import dell from "../../assets/dell.png";
+import dellLogo from "../../assets/Dell_Logo.png";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -28,18 +35,14 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem("Option 1", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("User", "sub1", <UserOutlined />, [
-    getItem("Tom", "3"),
-    getItem("Bill", "4"),
-    getItem("Alex", "5"),
-  ]),
-  getItem("Team", "sub2", <TeamOutlined />, [
-    getItem("Team 1", "6"),
-    getItem("Team 2", "8"),
-  ]),
-  getItem("Files", "9", <FileOutlined />),
+  getItem("Dashboard", "1", <MdOutlineSpaceDashboard />),
+  getItem("Matches", "2", <BsXDiamond />),
+  getItem("Events", "3", <AiOutlineCalendar />),
+  getItem("Teams", "4", <BsPeople />),
+  getItem("Rewards", "5", <BsTrophy />),
+  getItem("Messaging", "6", <BiMessageRounded />),
+  getItem("Profile", "7", <CiUser />),
+  getItem("Settings", "8", <FiSettings />),
 ];
 
 function SideBar() {
@@ -50,16 +53,21 @@ function SideBar() {
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider
+        trigger={null}
         collapsible
         collapsed={collapsed}
         onCollapse={(value) => setCollapsed(value)}
       >
-        <div className="demo-logo-vertical" />
+        <div className={collapsed ? styles.collapsedLogo : styles.logo}>
+          <img src={collapsed ? dellLogo : dell} alt="Dell" />
+        </div>
         <Menu
           theme="dark"
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={["3"]}
           mode="inline"
           items={items}
+          selectable={false}
+          inlineCollapsed={collapsed}
         />
       </Sider>
       {/* <Layout>

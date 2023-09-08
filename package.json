@@ -12,6 +12,7 @@
     "@ant-design/pro-layout": "^7.16.13",
     "antd": "^5.8.6",
     "axios": "^1.5.0",
+    "react-icons": "^4.11.0",
     "umi": "^4.0.80"
   },
   "devDependencies": {
