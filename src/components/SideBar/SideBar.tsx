@@ -34,6 +34,7 @@ function getItem(
   } as MenuItem;
 }
 
+//Side bar Items
 const items: MenuItem[] = [
   getItem("Dashboard", "1", <MdOutlineSpaceDashboard />),
   getItem("Matches", "2", <BsXDiamond />),

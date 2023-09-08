@@ -6,13 +6,12 @@ import Main from "@/components/Main/Main";
 
 export default function () {
   const [collapsed, setCollapsed] = useState(false);
+  //check the screen to setCollapsed in smaller devices
   useEffect(() => {
     if (window.innerWidth < 950) {
       setCollapsed(true);
     }
   }, []);
-  // const roote =
-  console.log(window.location.href);
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <SideBar collapsed={collapsed} />

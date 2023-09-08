@@ -1,12 +1,5 @@
 import React from "react";
-import { Breadcrumb, Layout, theme } from "antd";
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+import { Breadcrumb, Layout } from "antd";
 import HeadBar from "../header/HeadBar";
 
 const { Header, Content, Footer } = Layout;

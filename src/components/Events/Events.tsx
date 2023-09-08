@@ -15,12 +15,17 @@ function Events() {
   const [enteredDate, setEnteredDate] = useState(undefined);
   const [selectedCities, setSelectedCities] = useState<CheckboxValueType[]>([]);
 
+  //Search events titles based on user input
   function onSearch(e: string) {
+    //Clear previous filters
     setEnteredDate(undefined);
     setSelectedCities([]);
+
+    //Check input to not be empty
     if (e.length === 0) {
       setEvents(data);
     } else {
+      // filter the events based on enter entered title
       setEvents(
         data.filter((event) =>
           event.title.toUpperCase().includes(e.toUpperCase())
@@ -28,10 +33,15 @@ function Events() {
       );
     }
   }
+
+  //Search events dates based on user input
   function onSetDate(value: any, date: any) {
+    //Clear previous filters
     setEnteredDate(value);
     setSearchedTitle("");
     setSelectedCities([]);
+
+    //Check value to not be empty
     if (value !== null) {
       const newDate = new Date(value.$d).toLocaleDateString("en-us", {
         weekday: "long",
@@ -40,15 +50,21 @@ function Events() {
         day: "numeric",
       });
 
+      // filter events based on the entered date
       setEvents(data.filter((event) => event.date === newDate));
     } else {
       setEvents(data);
     }
   }
+
+  //Search events cities based on user input
   function onSetCity(cities: CheckboxValueType[]) {
+    //Clear previous filters
     setSearchedTitle("");
     setEnteredDate(undefined);
     setSelectedCities(cities);
+
+    //Check value to not be empty
     if (cities.length === 0) {
       setEvents(data);
     } else {
@@ -61,12 +77,16 @@ function Events() {
         state: string;
         favorite: boolean;
       }[] = [];
+
+      //Filter the events based on the array of chosen cities
       cities.forEach((city) => {
         newArr.push(...data.filter((event) => event.city === city));
       });
       setEvents(newArr);
     }
   }
+
+  //Reset all filters
   function reset() {
     setEvents(data);
     setSearchedTitle("");
@@ -79,6 +99,7 @@ function Events() {
         <h4 onClick={reset} className={styles.reset}>
           Reset
         </h4>
+        <h5>Title</h5>
         <Search
           placeholder="Search titles"
           onSearch={onSearch}

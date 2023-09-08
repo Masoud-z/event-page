@@ -11,6 +11,7 @@ import {
 const { Meta } = Card;
 
 function EventModal({ event }: any) {
+  //isModalOpen state to control the opening and closing the modal 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
